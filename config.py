@@ -7,6 +7,7 @@ class Settings(BaseSettings):
     BOT_TOKEN: str
     ADMINS: list[int]
     SHOW_FIELDS: list[str]
+    NOTIFICATION_TIME: str = "19:00"
 
     class Config:
         env_file = ".env"
