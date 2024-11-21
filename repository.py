@@ -16,7 +16,7 @@ class Keys(Base):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String, nullable=False)
-    pressedAt = Column(DateTime, nullable=False, default=datetime.utcnow)  # Зміна на UTC
+    pressedAt = Column(DateTime, nullable=False, default=datetime.now)
 
 
 class KeyRepository:
@@ -111,7 +111,7 @@ class KeyRepository:
             if not first_date:
                 logger.debug("No records in the database.")
                 return 0
-            days = max((datetime.utcnow() - first_date).days, 1)
+            days = max((datetime.now() - first_date).days, 1)
             average = count / days
             logger.debug("Average presses per day for all keys: %.2f", average)
             return average
@@ -126,7 +126,7 @@ class KeyRepository:
             if not first_date:
                 logger.debug("No records in the database.")
                 return 0
-            weeks = max((datetime.utcnow() - first_date).days / 7, 1)
+            weeks = max((datetime.now() - first_date).days / 7, 1)
             average = count / weeks
             logger.debug("Average presses per week for all keys: %.2f", average)
             return average
@@ -141,7 +141,7 @@ class KeyRepository:
             if not first_date:
                 logger.debug("No records in the database.")
                 return 0
-            months = max((datetime.utcnow() - first_date).days / 30, 1)
+            months = max((datetime.now() - first_date).days / 30, 1)
             average = count / months
             logger.debug("Average presses per month for all keys: %.2f", average)
             return average
@@ -156,7 +156,7 @@ class KeyRepository:
             if not first_date:
                 logger.debug("No records for key '%s'.", key_name)
                 return 0
-            days = max((datetime.utcnow() - first_date).days, 1)
+            days = max((datetime.now() - first_date).days, 1)
             average = count / days
             logger.debug("Average presses per day for key '%s': %.2f", key_name, average)
             return average
@@ -171,7 +171,7 @@ class KeyRepository:
             if not first_date:
                 logger.debug("No records for key '%s'.", key_name)
                 return 0
-            weeks = max((datetime.utcnow() - first_date).days / 7, 1)
+            weeks = max((datetime.now() - first_date).days / 7, 1)
             average = count / weeks
             logger.debug("Average presses per week for key '%s': %.2f", key_name, average)
             return average
@@ -186,7 +186,7 @@ class KeyRepository:
             if not first_date:
                 logger.debug("No records for key '%s'.", key_name)
                 return 0
-            months = max((datetime.utcnow() - first_date).days / 30, 1)
+            months = max((datetime.now() - first_date).days / 30, 1)
             average = count / months
             logger.debug("Average presses per month for key '%s': %.2f", key_name, average)
             return average
