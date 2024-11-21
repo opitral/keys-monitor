@@ -1,5 +1,5 @@
 from pynput import keyboard
-from key_repository import KeyRepository
+from repository import KeyRepository
 from config import settings
 from logger_config import get_logger
 
